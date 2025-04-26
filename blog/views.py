@@ -60,6 +60,7 @@ def add_post(request, category_url):
         if form.is_valid():
             post = form.save(commit=False)
             post.cat = category
+            post.author = request.user  # Set the author to the current user
             post.save()
             return redirect('category_detail', url=category_url)
     else:
