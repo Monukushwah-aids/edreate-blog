@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ cat.title }} - Posts {% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-4">
+
+  <h3 class="text-2xl font-semibold mb-4">{{ cat.title }}</h3>
+  <div class="mb-4">
+    <img src="/media/{{ cat.image }}" alt="{{ cat.title }}" class="w-full max-h-96 object-cover rounded">
+  </div>
+
+  <div class="flex justify-end mb-6">
+    <a href="{% url 'add_post' cat.url %}" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Add New Post</a>
+  </div>
+
+  {% for p in posts %}
+    <div class="bg-white shadow rounded p-4 mb-4">
+      <h4 class="text-xl font-bold mb-2">{{ p.title }}</h4>
+      <p class="text-gray-700 mb-4">{{ p.content|truncatewords:30 }}</p>
+
+      <div class="flex space-x-2">
+        <a href="/blog/{{ p.url }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded">View</a>
+        <a href="{% url 'update_post' p.post_id %}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">Edit</a>
+        <a href="{% url 'delete_post' p.post_id %}" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">Delete</a>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-gray-600">No posts found in this category.</p>
+  {% endfor %}
+
+</div>
+{% endblock %}

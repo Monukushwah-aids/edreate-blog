@@ -1,0 +1,51 @@
+{% load static %}
+<footer class="bg-blue-500 text-black py-10">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col gap-10 md:flex-row md:justify-between">
+
+    <!-- Logo Section -->
+    <div class="flex justify-center md:justify-start">
+      <img src="{% static 'images/edreate-logo-transparent-background.webp' %}" class="h-12 w-auto" alt="Logo">
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="text-center md:text-left">
+      <h5 class="text-xl font-bold mb-4">Quick Links</h5>
+      <ul class="space-y-2 text-lg">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Courses</a></li>
+        <li><a href="#" class="hover:underline">About Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact and Social Section in row -->
+    <div class="flex flex-col items-center md:flex-row md:items-start gap-10">
+      <!-- Contact Info -->
+      <div class="text-center md:text-left">
+        <h5 class="text-xl font-bold mb-2">Contact Us</h5>
+        <p class="text-lg">edreate.social@gmail.com</p>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="text-center md:text-left">
+        <h5 class="text-xl font-bold mb-2">Connect With Us</h5>
+        <div class="mt-3 flex justify-center md:justify-start space-x-4">
+          <a href="#"><img src="{% static 'images/github_3291667.png' %}" alt="GitHub" class="h-7 w-7"></a>
+          <a href="#"><img src="{% static 'images/youtube_4494485.png' %}" alt="YouTube" class="h-7 w-7"></a>
+          <a href="#"><img src="{% static 'images/linkedin_3536505.png' %}" alt="LinkedIn" class="h-7 w-7"></a>
+          <a href="#"><img src="{% static 'images/twitter_5968830.png' %}" alt="Twitter" class="h-7 w-7"></a>
+          <a href="#"><img src="{% static 'images/instagram_2111463.png' %}" alt="Instagram" class="h-7 w-7"></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-300 mt-10 pt-6 text-center text-base">
+    <p class="text-lg">© 2024 Edreate. All rights reserved.</p>
+    <div class="flex flex-wrap justify-center space-x-6 mt-2 text-lg font-semibold">
+      <a href="#" class="hover:underline">Cookie Policy</a>
+      <a href="#" class="hover:underline">Privacy Policy</a>
+    </div>
+  </div>
+</footer>

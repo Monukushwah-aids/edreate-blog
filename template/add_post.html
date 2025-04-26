@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 py-6">
+  <h2 class="text-3xl font-bold mb-6 text-center md:text-left">Add New Post</h2>
+
+  <form method="post" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md w-full">
+    {% csrf_token %}
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% for field in form %}
+        <div class="flex flex-col">
+          <label class="mb-1 font-semibold text-gray-700">{{ field.label_tag }}</label>
+          <div class="relative">
+            {{ field }}
+            {% if field.errors %}
+              <p class="text-red-600 text-sm">{{ field.errors }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-6 flex flex-col md:flex-row justify-center md:justify-end gap-4">
+      <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded transition duration-200 w-full sm:w-auto">
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

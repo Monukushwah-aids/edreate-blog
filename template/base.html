@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+  
+    .animate-marquee {
+      display: flex;
+      width: fit-content;
+      animation: marquee 30s linear infinite;
+    }
+  </style>
+  
+<body class="bg-gray-50 text-gray-900">
+
+    {% include 'header.html' %}
+
+    <main class="min-h-screen py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

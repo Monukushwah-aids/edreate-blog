@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-5xl mx-auto px-6 py-16">
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-extrabold text-blue-700 mb-4">About <span class="text-gray-800">Edreate Blog</span></h1>
+    <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+      Empowering voices, sharing ideas, and inspiring the world — one story at a time.
+    </p>
+  </div>
+
+  <div class="bg-gradient-to-r from-blue-100 to-white rounded-3xl shadow-xl p-10 space-y-8">
+    <section>
+      <h2 class="text-2xl font-bold text-blue-600 mb-2">Our Vision</h2>
+      <p class="text-gray-700 leading-7">
+        At Edreate Blog, we believe that everyone has a unique perspective worth sharing. 
+        Our vision is to build a vibrant community where creativity, innovation, and authenticity thrive together.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold text-blue-600 mb-2">What We Offer</h2>
+      <p class="text-gray-700 leading-7">
+        Edreate is more than just a blogging platform. It's a space for creators, thinkers, and dreamers 
+        to express their passions — whether it's technology, lifestyle, entrepreneurship, personal development, or the arts.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold text-blue-600 mb-2">Our Community</h2>
+      <p class="text-gray-700 leading-7">
+        Every post, every comment, and every idea contributes to a growing movement of shared knowledge and inspiration.
+        We welcome bloggers from all walks of life to contribute and be part of something bigger.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold text-blue-600 mb-2">Join Us</h2>
+      <p class="text-gray-700 leading-7">
+        Whether you're here to read, write, or discover new ideas, Edreate Blog is your creative home.
+        Together, let's spark conversations, build communities, and create a more connected world.
+      </p>
+    </section>
+  </div>
+
+  <div class="text-center mt-12">
+    <a href="{% url 'signup' %}" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300">
+      Start Your Journey with Us
+    </a>
+  </div>
+</div>
+{% endblock %}

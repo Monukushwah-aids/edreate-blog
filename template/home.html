@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to IBLOGS{% endblock %}
+
+{% block content %}
+<div class="overflow-hidden w-full bg-gray-100 py-4">
+    <div class="flex gap-4 animate-marquee">
+      {% for cat in cats %}
+      <div class="min-w-[250px] flex-shrink-0 bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/media/{{cat.image}}" alt="{{cat.title}}" class="h-40 w-full object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">{{ cat.title }}</h3>
+          <p class="text-sm text-gray-600 truncate">{{ cat.description }}</p>
+          <a href="/category/{{cat.url}}" class="inline-block mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">VIEW</a>
+        </div>
+      </div>
+      {% endfor %}
+      {% for cat in cats %}
+      <!-- Duplicate to create seamless loop -->
+      <div class="min-w-[250px] flex-shrink-0 bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="/media/{{cat.image}}" alt="{{cat.title}}" class="h-40 w-full object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">{{ cat.title }}</h3>
+          <p class="text-sm text-gray-600 truncate">{{ cat.description }}</p>
+          <a href="/category/{{cat.url}}" class="inline-block mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">VIEW</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+</div>
+
+<!-- Posts -->
+<div class="container mx-auto px-4">
+  {% for p in posts %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center mb-10">
+      <div class="sm:col-span-2 lg:col-span-2">
+          <div class="prose max-w-none">{{ p.content|truncatewords:60|safe }}</div>
+          <div class="mt-4 space-x-2 flex flex-wrap justify-start md:justify-start">
+              <a href="/blog/{{ p.url }}" class="bg-blue-600 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-2 w-full sm:w-auto text-center">Read More..</a> <!-- Adjusted for responsiveness -->
+              <a href="{% url 'update_post' p.post_id %}" class="bg-yellow-500 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-2 w-full sm:w-auto text-center">Edit</a>
+              <a href="{% url 'delete_post' p.post_id %}" class="bg-red-500 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-2 w-full sm:w-auto text-center">Delete</a>
+              <a href="{% url 'add_post' p.cat.url %}" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-2 w-full sm:w-auto text-center">Add New Post</a>
+          </div>
+      </div>
+      <div>
+          <img src="/media/{{ p.image }}" class="w-full h-auto object-cover rounded" alt="Post image">
+      </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
